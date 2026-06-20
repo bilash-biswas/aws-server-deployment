@@ -2,7 +2,9 @@ import { configureStore, createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit';
 import type { Task, TasksState } from './task.model';
 
-const API_URL = 'http://localhost:5000/api/tasks';
+const API_URL = typeof window !== 'undefined' && window.location.hostname === 'localhost'
+  ? 'http://localhost:5000/api/tasks'
+  : '/api/tasks';
 
 const initialState: TasksState = {
   tasks: [],
