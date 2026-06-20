@@ -51,14 +51,18 @@ This guide provides a step-by-step walkthrough to deploy the full-stack Task CRU
    ```bash
    sudo systemctl enable --now docker
    ```
-5. Add the `ubuntu` user to the `docker` group so you can run docker commands without `sudo` (requires logging out and back in to take effect):
+5. Add the `ubuntu` user to the `docker` group so you can run docker commands without `sudo`:
    ```bash
    sudo usermod -aG docker ubuntu
    ```
+   > [!IMPORTANT]
+   > For this change to take effect in your *current* terminal session without logging out, run `newgrp docker` in your terminal. Alternatively, you can log out of the SSH session and log back in, or simply prefix commands with `sudo`.
+
 6. Install Docker Compose (V2):
    ```bash
    sudo apt-get install -y docker-compose-v2
    ```
+
 
 ---
 
